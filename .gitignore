@@ -1,0 +1,6 @@
+# Ignore
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+E-Commerce Public Dataset/
+generate_notebook.py
