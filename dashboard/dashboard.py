@@ -35,7 +35,7 @@ all_data = load_data()
 # SIDEBAR FILTER
 # ==============================
 st.sidebar.image("https://img.icons8.com/fluency/96/shopping-cart.png", width=80)
-st.sidebar.title("🛒 E-Commerce Dashboard")
+st.sidebar.title(" E-Commerce Dashboard")
 st.sidebar.markdown("---")
 
 # Date filter
@@ -52,13 +52,13 @@ filtered = all_data[
 ]
 
 st.sidebar.markdown("---")
-st.sidebar.markdown(f"📊 **{filtered['order_id'].nunique():,}** orders")
-st.sidebar.markdown(f"👥 **{filtered['customer_unique_id'].nunique():,}** customers")
+st.sidebar.markdown(f" **{filtered['order_id'].nunique():,}** orders")
+st.sidebar.markdown(f" **{filtered['customer_unique_id'].nunique():,}** customers")
 
 # ==============================
 # HEADER
 # ==============================
-st.title("📊 E-Commerce Public Dataset Dashboard")
+st.title(" E-Commerce Public Dataset Dashboard")
 st.markdown("Dashboard interaktif untuk analisis data E-Commerce di Brasil")
 st.markdown("---")
 
@@ -88,7 +88,7 @@ st.markdown("---")
 # ==============================
 # CHART 1: TREN BULANAN
 # ==============================
-st.subheader("📈 Tren Order & Revenue Bulanan")
+st.subheader(" Tren Order & Revenue Bulanan")
 
 monthly = filtered.copy()
 monthly['month'] = monthly['order_purchase_timestamp'].dt.to_period('M').astype(str)
@@ -128,7 +128,7 @@ st.pyplot(fig)
 # CHART 2: TOP KATEGORI PRODUK
 # ==============================
 st.markdown("---")
-st.subheader("🏆 Top 10 Kategori Produk")
+st.subheader(" Top 10 Kategori Produk")
 
 col1, col2 = st.columns(2)
 
@@ -161,7 +161,7 @@ with col2:
 # CHART 3: REVIEW SCORE & DELIVERY TIME
 # ==============================
 st.markdown("---")
-st.subheader("⭐ Review Score & Waktu Pengiriman")
+st.subheader(" Review Score & Waktu Pengiriman")
 
 col1, col2 = st.columns(2)
 
@@ -201,7 +201,7 @@ with col2:
 # CHART 4: RFM ANALYSIS
 # ==============================
 st.markdown("---")
-st.subheader("🎯 RFM Analysis - Segmentasi Pelanggan")
+st.subheader(" RFM Analysis - Segmentasi Pelanggan")
 
 reference_date = filtered['order_purchase_timestamp'].max() + pd.Timedelta(days=1)
 
@@ -261,7 +261,7 @@ st.pyplot(fig)
 # CHART 5: GEOSPATIAL - TOP STATES
 # ==============================
 st.markdown("---")
-st.subheader("🗺️ Distribusi Geografis Pelanggan")
+st.subheader(" Distribusi Geografis Pelanggan")
 
 customer_geo = filtered.groupby('customer_state').agg(
     total_customers=('customer_unique_id', 'nunique'),
